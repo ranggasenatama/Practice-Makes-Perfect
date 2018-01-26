@@ -44,6 +44,11 @@ class PostController extends Controller
         // return $request->title;
         // return $request->all();
 
+        $this->validate($request,[
+            'title'=>'required|max:20|unique:posts',
+            'content'=>'required'
+        ]);
+
         Post::create($request->all());
 
         return redirect('/posts');
