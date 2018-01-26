@@ -2,7 +2,7 @@
 
 @section('content')
     <form action="/posts" method="post">
-        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="title" placeholder="Title" required>
         {{csrf_field()}}
         <input type="submit" name"submit">
 

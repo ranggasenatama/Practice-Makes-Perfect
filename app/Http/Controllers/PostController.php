@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Post;
 use DB;
 
 class PostController extends Controller
@@ -13,9 +14,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        return "its work".$id;
+
+        $posts = Post::all();
+
+        return view('post.index',compact('posts'));
     }
 
     /**
@@ -38,7 +42,21 @@ class PostController extends Controller
     {
         // return $request->get('title');
         // return $request->title;
-        return $request->all();
+        // return $request->all();
+
+        Post::create($request->all());
+
+        return redirect('/posts');
+
+        // $input = $request->all();
+
+        // $input['title'] = $request->title;
+
+        // Post::create($request->all());
+
+        // $save = new Post($request->all());
+
+        // $save->save();
     }
 
     /**
