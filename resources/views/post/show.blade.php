@@ -2,7 +2,7 @@
 
 @section('content')
 
-   <h3>{{$post->title}}</h3>
+   <a href="{{route('posts.edit',$post->id)}}"><h3>{{$post->title}}</h3></a>
 
 @endsection
 
