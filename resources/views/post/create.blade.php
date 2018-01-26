@@ -8,6 +8,16 @@
 
     <h1>CREATE FORM</h1>
 
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+            </ul>
+        </div>
+    @endif
+
     {!! Form::open(['method'=>'POST','action'=>'PostController@store']) !!}
 
     <div class="form-group">
@@ -29,6 +39,7 @@
     </div>
 
     {!! Form::close() !!}
+
 @endsection
 
 @section('footer')
