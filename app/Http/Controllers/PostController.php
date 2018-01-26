@@ -111,7 +111,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $post->delete();
+        $post->forceDelete();
 
         return redirect('/posts');
     }
