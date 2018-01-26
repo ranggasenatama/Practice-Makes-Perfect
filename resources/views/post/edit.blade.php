@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="/posts" method="post">
+
+    <h1>EDIT FORM</h1>
+
+    <form action="/posts.edit" method="post">
         <input type="text" name="title" placeholder="Title" required>
         {{csrf_field()}}
         <input type="submit" name"submit">
