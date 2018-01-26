@@ -268,3 +268,7 @@ Route::get('/taggable', function () {
     }
     
 });
+
+//FORM VALIDATION
+
+Route::resource('/posts', 'PostController');
