@@ -5,6 +5,7 @@ use App\User;
 use App\Country;
 use App\Photo;
 use App\Tag;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -272,7 +273,41 @@ Route::get('/taggable', function () {
 //FORM VALIDATION
 
 Route::resource('/posts', 'PostController');
+
 // Route::group(['middleware' => 'web'], function () {
 
 //     Route::resource('/posts', 'PostController');
 // });
+
+
+//DATE
+Route::get('/dates', function () {
+    
+    $date = new DateTime('+1 week');
+
+    echo $date->format('Y-d-m');
+    echo "<br>";
+    echo Carbon::now()->diffforHumans();
+
+});
+
+//ACCESOR
+
+Route::get('/getname', function () {
+    
+    $user = User::find(1);
+
+    echo $user->name;
+
+});
+
+//MUTATOR
+Route::get('/setname', function () {
+    
+    $user = User::find(1);
+
+    $user->name = "rangga";
+
+    $user->save();
+
+});
