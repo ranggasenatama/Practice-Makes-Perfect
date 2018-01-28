@@ -311,6 +311,15 @@ Route::get('/setname', function () {
     $user->save();
 
 });
+
+//AUTH
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+//Middleware
+Route::get('/admin/user/roles', ['middleware'=>'role' ,function () {
+    
+
+    return "mbarang";
+}]);
