@@ -324,4 +324,4 @@ Route::get('/admin/user/roles', ['middleware'=>'role' ,function () {
     return "mbarang";
 }]);
 
-Route::get('/admin', 'AdminController');
+Route::get('/admin', 'AdminController@index');
