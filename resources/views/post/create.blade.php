@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    {!! Form::open(['method'=>'POST','action'=>'PostController@store']) !!}
+    {!! Form::open(['method'=>'POST','action'=>'PostController@store', 'files'=>true]) !!}
 
     <div class="form-group">
 
@@ -30,6 +30,12 @@
 
         {!! Form::label('content','Content',['class'=>'kelas anu']) !!}
         {!! Form::textarea('content',null,['class'=>'form-control','placeholder'=>'Isi Post']) !!}
+    
+    </div>
+    <div class="form-group">
+
+        {!! Form::label('file','File',['class'=>'kelas anu']) !!}
+        {!! Form::file('file') !!}
     
     </div>
     <div class="form-group">
