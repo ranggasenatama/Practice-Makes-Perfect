@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
 
+
     use SoftDeletes;
     // protected $table = posts;
     // protected $primaryKey= posts_id;
+
+    public $directory = "images/";
 
     protected $dates = ['deleted_at'];
 
@@ -37,6 +40,11 @@ class Post extends Model
     public static function scopeLatest($query)
     {
         return $query->orderBy('id','desc')->get();
+    }
+
+    public function getPathAttribute($value)
+    {
+        return $this->directory . $value;
     }
 
 }
