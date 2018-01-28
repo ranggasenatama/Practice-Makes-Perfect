@@ -311,3 +311,6 @@ Route::get('/setname', function () {
     $user->save();
 
 });
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
