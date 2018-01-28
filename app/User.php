@@ -38,8 +38,8 @@ class User extends Authenticatable
     }
 
     public function roles(){
-        // return $this->belongsToMany('App\Role','role_user','user_id','role_id');
-        return $this->belongsTo('App\Role');
+        return $this->belongsToMany('App\Role','role_user','user_id','role_id');
+    
     }
 
     public function photos(){
@@ -54,5 +54,22 @@ class User extends Authenticatable
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = strtoupper($value);
+    }
+
+    //MIDDLEWARE
+    public function role(){
+    
+        return $this->belongsTo('App\Role');
+    
+    }
+
+    public function isAdmin()
+    {
+        if($this->role->name == 'admin')
+        {
+            return true;
+        }
+
+        return false;
     }
 }
