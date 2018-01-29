@@ -22,8 +22,24 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //add session
+        session(['rangga'=>'jagoan']);
+        // $request->session()->put(['rangga'=>'jagoan']);
+
+        //delete session
+        // $request->session()->forget(['rangga']);
+
+        //menghapus sesion only
+        $request->session()->flush();
+        return $request->session()->all();
+
+        //flash hanya sekali pakai data
+        $request->session()->flash('message','message');
+        $request->session()->reslash();
+        $request->session()->keep('message');
+
         return view('home');
     }
 }
