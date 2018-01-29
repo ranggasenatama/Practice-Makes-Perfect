@@ -6,6 +6,7 @@ use App\Country;
 use App\Photo;
 use App\Tag;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -325,3 +326,18 @@ Route::get('/admin/user/roles', ['middleware'=>'role' ,function () {
 }]);
 
 Route::get('/admin', 'AdminController@index');
+
+//EMAIL
+Route::get('/email', function () {
+    
+    $data = ['title'=>'Untuk Gantenx', 
+            'content'=>'when i see your smile i see the world'
+    ];
+
+    Mail::send('emails.email',$data, function($message){
+
+        $message->to('ranggasenatama23@gmail.com','Rangga')->subjet('Hello World');
+
+    });
+
+});
