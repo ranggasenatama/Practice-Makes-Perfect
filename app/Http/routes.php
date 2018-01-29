@@ -334,9 +334,9 @@ Route::get('/email', function () {
             'content'=>'when i see your smile i see the world'
     ];
 
-    Mail::send('emails.email',$data, function($message){
+    Mail::send('emails.email', $data, function($message){
 
-        $message->to('ranggasenatama23@gmail.com','Rangga')->subjet('Hello World');
+        $message->to('ranggasenatama23@gmail.com', 'Rangga')->subject('Hello World');
 
     });
 
